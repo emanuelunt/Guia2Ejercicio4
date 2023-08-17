@@ -45,6 +45,7 @@ public class ViewListadoRubro extends javax.swing.JInternalFrame {
         jTableProductos = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("Listado por  Rubro");
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel1.setText("Listado de Productos por Rubro");

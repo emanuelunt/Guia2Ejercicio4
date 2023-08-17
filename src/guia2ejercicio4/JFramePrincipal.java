@@ -87,6 +87,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Por precio...");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
@@ -155,6 +160,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         escritorio.add(nuevaVentana);
         escritorio.moveToFront(nuevaVentana);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // Método maneja el evento clic del item de menu "Listado por precio"
+        escritorio.removeAll(); 
+        escritorio.repaint();  
+        ViewListadoPrecio nuevaVentana = new ViewListadoPrecio(listaProductos); 
+        nuevaVentana.setVisible(true); 
+        escritorio.add(nuevaVentana);
+        escritorio.moveToFront(nuevaVentana);      
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
