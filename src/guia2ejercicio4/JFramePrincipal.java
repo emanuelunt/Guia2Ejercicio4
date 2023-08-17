@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package guia2ejercicio4;
 
 import java.util.TreeSet;
@@ -133,9 +130,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // Mètodo que maneja el evento clic del Item Pruducto
+        
         escritorio.removeAll(); 
         escritorio.repaint();  
-        ViewProductos nuevaVentana = new ViewProductos(); 
+        ViewProductos nuevaVentana = new ViewProductos(listaProductos); 
         nuevaVentana.setVisible(true); 
         escritorio.add(nuevaVentana);
         escritorio.moveToFront(nuevaVentana); 
@@ -188,14 +187,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarProductos() {
+   private void cargarProductos() {
 
-        listaProductos.add(new Producto(10, "Azucar x 1 Kg", 156.32, 20, Categoria.COMESTIBLE));
-        listaProductos.add(new Producto(15, "Dulce de leche  x 1 Kg", 125.32, 10, Categoria.COMESTIBLE));
-        listaProductos.add(new Producto(20, "Lavandina x 5 litros", 362.58, 100, Categoria.LIMPIEZA));
-        listaProductos.add(new Producto(25, "Detergente  x 500 cc", 563.85, 60, Categoria.LIMPIEZA));
-        listaProductos.add(new Producto(30, "Talco Borita x 250grm", 56.32, 10, Categoria.PERFUMERIA));
-        listaProductos.add(new Producto(35, "Perfume para mujer 100ml", 5156.32, 40, Categoria.PERFUMERIA));
-    }
+        listaProductos.add(new Producto(10, "Azucar x 1 Kg", 156.32, 20, "COMESTIBLE"));
+        listaProductos.add(new Producto(15, "Dulce de leche  x 1 Kg", 125.32, 10, "COMESTIBLE"));
+        listaProductos.add(new Producto(20, "Lavandina x 5 litros", 362.58, 100, "LIMPIEZA"));
+        listaProductos.add(new Producto(25, "Detergente  x 500 cc", 563.85, 60, "LIMPIEZA"));
+        listaProductos.add(new Producto(30, "Talco Borita x 250grm", 56.32, 10, "PERFUMERIA"));
+        listaProductos.add(new Producto(35, "Perfume para mujer 100ml", 5156.32, 40, "PERFUMERIA"));
+   }
 
 }

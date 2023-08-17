@@ -4,6 +4,7 @@
  */
 package guia2ejercicio4;
 
+import java.util.TreeSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,11 +13,13 @@ import javax.swing.JOptionPane;
  */
 public class ViewProductos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewProductos
-     */
-    public ViewProductos() {
+    private TreeSet<Producto> lista; // para referencial a ala lista que se le pasa desde la ventana principal
+    private Producto producto;  // se utliza para crear un producto
+    
+    
+    public ViewProductos( TreeSet<Producto> lista) {
         initComponents();
+        this.lista = lista;
     }
 
     /**
@@ -41,7 +44,7 @@ public class ViewProductos extends javax.swing.JInternalFrame {
         jbtnGuardar = new javax.swing.JButton();
         jbtnSalir = new javax.swing.JButton();
         jbtnEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbtnBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Porductos");
@@ -75,6 +78,11 @@ public class ViewProductos extends javax.swing.JInternalFrame {
         jtStock.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
 
         jbtnNuevo.setText("Nuevo");
+        jbtnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnNuevoActionPerformed(evt);
+            }
+        });
 
         jbtnGuardar.setText("Guardar");
 
@@ -87,7 +95,7 @@ public class ViewProductos extends javax.swing.JInternalFrame {
 
         jbtnEliminar.setText("Eliminar");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar32.png"))); // NOI18N
+        jbtnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar32.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,7 +128,7 @@ public class ViewProductos extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
+                                .addComponent(jbtnBuscar))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -146,7 +154,7 @@ public class ViewProductos extends javax.swing.JInternalFrame {
                             .addComponent(jbtnNuevo)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -192,9 +200,24 @@ public class ViewProductos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbtnSalirActionPerformed
 
+    private void jbtnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnNuevoActionPerformed
+        // Método que maneje el evento clic del boton nuevo
+        
+            
+        
+        
+        
+        int cod = Integer.parseInt(jtCodigo.getText());
+        String descri = jtDescripcion.getText();
+        double preci = Double.parseDouble(jtPrecio.getText());
+        String catego =  jbCategoria.getSelectedItem().toString();
+        int stock = Integer.parseInt(jtStock.getText());
+        producto = new Producto(cod,descri,preci,stock,catego);
+        lista.add(producto);
+    }//GEN-LAST:event_jbtnNuevoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -202,6 +225,7 @@ public class ViewProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JComboBox<String> jbCategoria;
+    private javax.swing.JButton jbtnBuscar;
     private javax.swing.JButton jbtnEliminar;
     private javax.swing.JButton jbtnGuardar;
     private javax.swing.JButton jbtnNuevo;
